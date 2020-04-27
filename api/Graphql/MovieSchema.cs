@@ -17,25 +17,7 @@ namespace api.Graphql
 
     public MovieSchema(IDependencyResolver resolver) : base(resolver)
     {
-      Query = resolver.Resolve<MovieQuery>();
-
-      // this.Schema = GraphQL.Types.Schema.For(@"
-      //     type Movie {
-      //       title: String,
-      //       year: String,
-      //       stars: String,
-      //       rating: Float,
-      //       genre: String,
-      //     }
-
-      //     type Query {
-      //         movies: [Movie],
-      //         moviesByGenre(genre: String): [Movie],
-      //     }
-      // ", _ =>
-      // {
-      //   _.Types.Include<Query>();
-      // });
+      Query = resolver.Resolve<MovieQuery>();      
     }
 
   }

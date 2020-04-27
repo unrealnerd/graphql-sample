@@ -12,7 +12,18 @@ namespace api.Database
         public MovieQuery(MovieRepository repo)
         {
             moviesRepo = repo;
+            
             Field<ListGraphType<MovieType>>("movies", resolve: context => GetMovies());
+            
+            Field<ListGraphType<MovieType>>(
+                "moviesByGenre",
+                arguments: new QueryArguments(
+                    new QueryArgument<IdGraphType> { Name = "genre" }
+                ),
+                resolve: context =>
+                {
+                    return GetMoviesByGenre(context.GetArgument<string>("genre"));
+                });
         }
 
         public IEnumerable<Movie> GetMovies()
