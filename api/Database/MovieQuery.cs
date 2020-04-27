@@ -18,7 +18,7 @@ namespace api.Database
             Field<ListGraphType<MovieType>>(
                 "moviesByGenre",
                 arguments: new QueryArguments(
-                    new QueryArgument<IdGraphType> { Name = "genre" }
+                    new QueryArgument<StringGraphType> { Name = "genre" }
                 ),
                 resolve: context =>
                 {
