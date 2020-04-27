@@ -1,3 +1,5 @@
+using GraphQL.Types;
+
 namespace api.Database
 {
     public class Movie

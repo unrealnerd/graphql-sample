@@ -1,0 +1,26 @@
+@url = https://localhost:5001/movies
+
+###
+POST {{url}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+{
+  movies{
+    title
+    genre
+  }
+}
+
+
+###
+POST {{url}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+{
+  moviesByGenre(genre:"Drama"){
+    title
+    genre
+  }
+}
